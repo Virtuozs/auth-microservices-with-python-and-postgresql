@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  auth:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - POSTGRES_DATABASE=auth
+      - POSTGRES_USERNAME=auth1
+      - POSTGRES_HOST=db
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_PORT=5432
+      - JWT_SECRET=this_is_most_secure_secret_key
+  db:
+    build: ./Database/
